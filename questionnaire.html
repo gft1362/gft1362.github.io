@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>شروع ارزیابی | ژنوم</title>
+<meta name="description" content="پرسشنامه استعدادیابی ژنوم. برای کودک و نوجوان (۸ تا ۱۸ سال) یا بزرگسال (۱۸ سال به بالا).">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#1e2a6b">
+<link rel="canonical" href="https://genome.example.com/questionnaire.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231e2a6b'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2312b5a6'/%3E%3C/svg%3E">
+<style>
+:root{--ink:#10163a;--indigo:#1e2a6b;--teal:#12b5a6;--bg:#f7f8fc;--card:#fff;--muted:#5b6385;--line:#e3e6f2;--soft:#eef1fb;--r:18px;--shadow:0 10px 30px rgba(30,42,107,.08);--success:#1b7d46;--danger:#c0392b}
+@media (prefers-color-scheme: dark){:root{--ink:#e7eaf5;--indigo:#2f3f9e;--bg:#0b1030;--card:#161b3d;--muted:#aab2d9;--line:#2a3060;--soft:#1f2550;--shadow:0 10px 30px rgba(0,0,0,.4)}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden}
+body{font-family:Tahoma,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;font-size:16px}
+a{color:var(--indigo)}
+.wrap{max-width:760px;margin:auto;padding:0 20px}
+header{background:var(--indigo);color:#fff;padding:24px 0}
+header h1{font-size:1.6rem;font-weight:800}
+section{padding:50px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:14px;font-weight:700;border:2px solid transparent;cursor:pointer;font-family:inherit;font-size:1rem;transition:.2s}
+.btn-primary{background:var(--teal);color:#04332f}
+.btn-ghost{border-color:var(--indigo);color:var(--indigo);background:transparent}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+#progress-bar{position:fixed;top:0;left:0;height:4px;background:var(--teal);width:0;z-index:100;transition:width .3s}
+.q{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;margin-bottom:18px;box-shadow:var(--shadow)}
+.q h3{font-size:1.05rem;margin-bottom:14px;color:var(--ink)}
+.q .hint{font-size:.85rem;color:var(--muted);margin-top:6px}
+.opt{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.opt label{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:var(--soft);border:2px solid transparent;border-radius:12px;cursor:pointer;font-size:.95rem;transition:.2s}
+.opt label:hover{border-color:var(--teal)}
+.opt input[type=radio]{accent-color:var(--teal);width:18px;height:18px;cursor:pointer}
+.opt input[type=radio]:checked+span{font-weight:700}
+.opt label:has(input:checked){background:#dcf7f3;border-color:var(--teal)}
+.scale{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.scale input[type=range]{flex:1;min-width:200px;accent-color:var(--teal);height:6px;cursor:pointer}
+.scale .v{font-weight:700;color:var(--teal);min-width:50px;text-align:center;background:var(--soft);padding:4px 10px;border-radius:8px}
+.scale .labels{display:flex;justify-content:space-between;width:100%;font-size:.78rem;color:var(--muted);margin-top:4px}
+.nav-buttons{display:flex;justify-content:space-between;gap:10px;margin-top:24px;flex-wrap:wrap}
+.step-indicator{display:flex;gap:6px;justify-content:center;margin-bottom:30px}
+.step-indicator span{width:30px;height:6px;border-radius:3px;background:var(--line);transition:.3s}
+.step-indicator span.active{background:var(--teal)}
+.step-indicator span.done{background:var(--success)}
+#result{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--shadow);text-align:center}
+#result h2{color:var(--success);font-size:1.6rem;margin-bottom:10px}
+#result p{color:var(--muted);margin-bottom:20px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="progress-bar" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <h1>📝 پرسشنامه استعدادیابی ژنوم</h1>
+    <p id="path-label">در حال بارگذاری…</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="step-indicator" id="steps" aria-hidden="true"></div>
+
+<noscript>
+  <div style="background:#fff4de;color:#8a5a00;padding:14px 20px;border-radius:12px;margin:20px 0">
+    ⚠ این پرسشنامه نیازمند جاوااسکریپت است. لطفاً آن را فعال کنید.
+  </div>
+</noscript>
+
+<form id="form" novalidate>
+  <!-- سوالات اینجا تزریق می‌شوند -->
+</form>
+
+<div id="result" hidden>
+  <h2>✔ پرسشنامه کامل شد</h2>
+  <p>پاسخ‌های شما در مرورگر ذخیره شد.</p>
+  <p style="margin:20px 0">در نسخه آزمایشی، تکالیف عملکردی هنوز فعال نیست. به‌زودی در دسترس خواهد بود.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px">
+    <a href="result.html?demo=child" class="btn btn-primary">مشاهده نمونه کارنامه</a>
+    <a href="index.html" class="btn btn-ghost">بازگشت به خانه</a>
+  </div>
+</div>
+
+</main>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const params=new URLSearchParams(location.search);
+const path=params.get('path')||'child';
+const isChild=path==='child';
+
+$('path-label').textContent=isChild
+  ?'مسیر انتخابی: کودک و نوجوان (۸ تا ۱۸ سال)'
+  :'مسیر انتخابی: بزرگسال (۱۸ سال به بالا)';
+
+const childQs=[
+  {q:'فرزندتان در چه سنی است؟',type:'radio',opts:['۵ تا ۷ سال','۸ تا ۱۱ سال','۱۲ تا ۱۴ سال','۱۵ تا ۱۸ سال']},
+  {q:'وقتی با یک مسئله جدید روبرو می‌شود، معمولاً چه می‌کند؟',type:'radio',opts:['سریع شروع می‌کند و در میانه راه متوقف می‌شود','کمی فکر می‌کند، سپس با طرح گام‌به‌گام پیش می‌رود','سریع ایده می‌دهد، اما اجرا می‌لنگد','طولانی فکر می‌کند، سپس دقیق اجرا می‌کند']},
+  {q:'وقتی کار جذاب است، چقدر می‌تواند تمرکز کند؟',type:'scale',min:'کم',max:'زیاد'},
+  {q:'هنگام مواجهه با شکست، واکنش غالب چه است؟',type:'radio',opts:['عصبانی می‌شود و رها می‌کند','سریع موضوع دیگری را شروع می‌کند','دوباره تلاش می‌کند','فکر می‌کند چرا شکست خورده']},
+  {q:'خلاقیت او در چه زمینه‌ای بیشترین سرزندگی را دارد؟',type:'radio',opts:['کلامی (داستان، شوخی)','تجسمی (نقاشی، ساختمان)','منطقی (الگو، دسته‌بندی)','حرکتی (ورزش، رقص)']},
+  {q:'آیا در تکالیف طولانی تمرکزش افت می‌کند؟',type:'scale',min:'هرگز',max:'همیشه'},
+  {q:'چگونه یاد می‌گیرد؟',type:'radio',opts:['با دیدن','با شنیدن','با لمس و انجام','با توضیح منطقی']},
+  {q:'آیا در محیط‌های شلوغ دچار پراکندگی حواس می‌شود؟',type:'scale',min:'هرگز',max:'همیشه'},
+];
+
+const adultQs=[
+  {q:'در ۵ سال گذشته، چند بار مسیر شغلی یا تحصیلی‌تان را تغییر داده‌اید؟',type:'radio',opts:['صفر','یک بار','دو بار','سه بار یا بیشتر']},
+  {q:'وقتی یک تصمیم مهم می‌گیرید، معمولاً چگونه عمل می‌کنید؟',type:'radio',opts:['سریع و شهودی','با تحلیل طولانی','با مشورت با دیگران','با نوشتن گزینه‌ها و امتیازدهی']},
+  {q:'چقدر در وظایف روزمره منظم هستید؟',type:'scale',min:'بی‌نظم',max:'بسیار منظم'},
+  {q:'وقتی با یک چالش غیرمنتظره روبرو می‌شوید، اولین واکنش چیست؟',type:'radio',opts:['خونسردی و برنامه‌ریزی','نگرانی و تردید','کنجکاوی و کاوش','اقدام سریع']},
+  {q:'در چه نوع کارهایی بیشترین انرژی دارید؟',type:'radio',opts:['کار با داده و الگو','ارتباط با انسان‌ها','خلق و طراحی','ساختاردهی و سازماندهی']},
+  {q:'چقدر در شغل فعلی احساس هم‌راستایی دارید؟',type:'scale',min:'کاملاً ناهم‌راستا',max:'کاملاً هم‌راستا'},
+  {q:'چگونه ایده‌های جدید تولید می‌کنید؟',type:'radio',opts:['با نوشتن آزاد','با گفت‌وگو با دیگران','با تجسم ذهنی','با تحلیل داده']},
+  {q:'چقدر در اجرای ایده‌هایتان پیوسته هستید؟',type:'scale',min:'شروع زیاد، پایان کم',max:'پیوسته تا انتها'},
+];
+
+const qs=isChild?childQs:adultQs;
+let current=0;
+const answers=new Array(qs.length).fill(null);
+
+// ساخت step indicator
+const stepsEl=$('steps');
+qs.forEach((_,i)=>{
+  const s=document.createElement('span');
+  if(i===0)s.classList.add('active');
+  stepsEl.appendChild(s);
+});
+
+function renderQ(i){
+  const form=$('form');
+  form.innerHTML='';
+  if(i>=qs.length){
+    showResult();
+    return;
+  }
+  const q=qs[i];
+  const div=document.createElement('div');
+  div.className='q';
+  const h3=document.createElement('h3');
+  h3.textContent=(i+1)+'. '+q.q;
+  div.appendChild(h3);
+  
+  if(q.type==='radio'){
+    const optDiv=document.createElement('div');
+    optDiv.className='opt';
+    optDiv.setAttribute('role','radiogroup');
+    q.opts.forEach((opt,idx)=>{
+      const id='q'+i+'_'+idx;
+      const label=document.createElement('label');
+      const inp=document.createElement('input');
+      inp.type='radio';
+      inp.name='q'+i;
+      inp.id=id;
+      inp.value=opt;
+      inp.checked=answers[i]===opt;
+      inp.addEventListener('change',()=>{answers[i]=opt;updateNav()});
+      const span=document.createElement('span');
+      span.textContent=opt;
+      label.appendChild(inp);
+      label.appendChild(span);
+      optDiv.appendChild(label);
+    });
+    div.appendChild(optDiv);
+  }else if(q.type==='scale'){
+    const scaleDiv=document.createElement('div');
+    scaleDiv.className='scale';
+    const inp=document.createElement('input');
+    inp.type='range';
+    inp.min='0';
+    inp.max='100';
+    inp.step='10';
+    inp.value=answers[i]||50;
+    inp.setAttribute('aria-label',q.q);
+    const v=document.createElement('div');
+    v.className='v';
+    v.textContent=inp.value+'%';
+    inp.addEventListener('input',()=>{v.textContent=inp.value+'%';answers[i]=parseInt(inp.value)});
+    if(answers[i]===null)answers[i]=50;
+    scaleDiv.appendChild(inp);
+    scaleDiv.appendChild(v);
+    const labels=document.createElement('div');
+    labels.className='labels';
+    const lmin=document.createElement('span');
+    lmin.textContent=q.min;
+    const lmax=document.createElement('span');
+    lmax.textContent=q.max;
+    labels.appendChild(lmin);
+    labels.appendChild(lmax);
+    scaleDiv.appendChild(labels);
+    div.appendChild(scaleDiv);
+  }
+  
+  form.appendChild(div);
+  
+  // navigation
+  const nav=document.createElement('div');
+  nav.className='nav-buttons';
+  const prev=document.createElement('button');
+  prev.type='button';
+  prev.className='btn btn-ghost';
+  prev.textContent='→ قبلی';
+  prev.disabled=i===0;
+  prev.addEventListener('click',()=>{current--;renderQ(current);updateSteps()});
+  
+  const next=document.createElement('button');
+  next.type='button';
+  next.className='btn btn-primary';
+  next.textContent=i===qs.length-1?'پایان ←':'بعدی ←';
+  next.disabled=answers[i]===null;
+  next.addEventListener('click',()=>{
+    if(i<qs.length-1){current++;renderQ(current);updateSteps()}
+    else showResult();
+  });
+  
+  nav.appendChild(prev);
+  nav.appendChild(next);
+  form.appendChild(nav);
+  
+  // update progress bar
+  const pct=((i)/qs.length)*100;
+  $('progress-bar').style.width=pct+'%';
+}
+
+function updateSteps(){
+  const spans=stepsEl.querySelectorAll('span');
+  spans.forEach((s,idx)=>{
+    s.classList.remove('active','done');
+    if(idx<current)s.classList.add('done');
+    else if(idx===current)s.classList.add('active');
+  });
+}
+
+function updateNav(){
+  // re-render current question to update button state
+  renderQ(current);
+  updateSteps();
+}
+
+function showResult(){
+  $('form').hidden=true;
+  $('steps').hidden=true;
+  const r=$('result');
+  r.hidden=false;
+  $('progress-bar').style.width='100%';
+  
+  // save to localStorage
+  const data={path,answers,ts:new Date().toISOString()};
+  const list=JSON.parse(localStorage.getItem('qs')||'[]');
+  list.push(data);
+  localStorage.setItem('qs',JSON.stringify(list));
+}
+
+// start
+renderQ(0);
+</script>
+
+</body>
+</html>

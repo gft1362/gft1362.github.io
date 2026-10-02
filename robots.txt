@@ -1,0 +1,14 @@
+# robots.txt for ژنوم
+# https://genome.example.com/
+
+# موتورهای جستجوی استاندارد
+User-agent: *
+Allow: /
+Disallow: /engine-tests.html
+Disallow: /api/
+
+# Crawl-delay برای جلوگیری از بار اضافی
+Crawl-delay: 1
+
+# فایل sitemap
+Sitemap: https://genome.example.com/sitemap.xml

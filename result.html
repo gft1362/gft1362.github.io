@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>کارنامه استعداد | ژنوم</title>
+<meta name="description" content="نمونه کارنامه استعداد کودک یا بزرگسال از پلتفرم ژنوم. نمودار راداری، نقاط قوت، فرصت‌های رشد و نقشه اقدام.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#1e2a6b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231e2a6b'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2312b5a6'/%3E%3C/svg%3E">
+<style>
+:root{--ink:#10163a;--indigo:#1e2a6b;--indigo-2:#2f3f9e;--teal:#12b5a6;--amber:#f5a524;--bg:#f7f8fc;--card:#fff;--muted:#5b6385;--line:#e3e6f2;--soft:#eef1fb;--r:18px;--shadow:0 10px 30px rgba(30,42,107,.08)}
+@media (prefers-color-scheme: dark){:root{--ink:#e7eaf5;--indigo:#2f3f9e;--bg:#0b1030;--card:#161b3d;--muted:#aab2d9;--line:#2a3060;--soft:#1f2550;--shadow:0 10px 30px rgba(0,0,0,.4)}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden}
+body{font-family:Tahoma,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;font-size:16px}
+.wrap{max-width:960px;margin:auto;padding:0 20px}
+header{background:var(--indigo);color:#fff;padding:24px 0}
+header h1{font-size:1.6rem;font-weight:800}
+.report-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px;margin-bottom:20px;box-shadow:var(--shadow)}
+.report-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:start}
+.code{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;border-radius:var(--r);padding:24px;margin-bottom:18px}
+.code small{opacity:.85;display:block}
+.code h2{margin:6px 0;font-size:1.4rem;font-weight:800}
+.code q{color:#d6dbfa;font-size:.95rem}
+.pill{display:inline-block;padding:4px 14px;border-radius:99px;font-size:.82rem;font-weight:700;margin:3px 0 3px 6px}
+.pill.s{background:#dcf7f3;color:#0b6e64}
+.pill.g{background:#fff1d6;color:#8a5a00}
+h3{margin:16px 0 8px;font-size:1.05rem;color:var(--ink)}
+h4{margin:14px 0 6px;font-size:1rem}
+.action-plan{background:var(--soft);border-right:4px solid var(--teal);padding:16px 20px;border-radius:12px;margin-top:14px}
+.action-plan ol{padding-right:24px;margin-top:8px}
+.action-plan li{margin-bottom:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:14px;font-weight:700;border:2px solid transparent;cursor:pointer;font-family:inherit;font-size:1rem;text-decoration:none;transition:.2s}
+.btn-primary{background:var(--teal);color:#04332f}
+.btn-ghost{border-color:var(--indigo);color:var(--indigo);background:transparent}
+.btn-row{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.disclaimer{font-size:.82rem;color:var(--muted);background:var(--soft);padding:12px 16px;border-radius:10px;margin-top:20px}
+svg text{font-family:Tahoma,sans-serif;font-size:11px;fill:#2a3158}
+@media(max-width:760px){.report-grid{grid-template-columns:1fr}}
+@media print{header,.btn-row,.disclaimer{display:none}body{background:#fff;color:#000;font-size:12pt}.report-card{box-shadow:none;border:1px solid #999}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>📋 کارنامه استعداد</h1>
+    <p id="path-label">نمایه اولیه</p>
+  </div>
+</header>
+
+<main class="wrap">
+<div class="report-card">
+  <div class="report-grid">
+    <div>
+      <div id="radar"></div>
+      <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:8px">نمودار راداری ۸ محور</p>
+    </div>
+    <div>
+      <div class="code" id="code"></div>
+      <h3>نقاط قوت محوری</h3>
+      <div id="strengths"></div>
+      <h3>فرصت‌های رشد</h3>
+      <div id="growth"></div>
+      <h3>سطح هر محور</h3>
+      <p id="bands" style="font-size:.9rem;color:var(--muted)"></p>
+      <h3>یک توصیه عملی</h3>
+      <p id="tip" style="font-size:.95rem"></p>
+    </div>
+  </div>
+  
+  <div class="action-plan">
+    <h3>🗺️ نقشه اقدام ۶ ماهه (نمونه)</h3>
+    <ol id="plan"></ol>
+  </div>
+  
+  <p class="disclaimer">⚠ این کارنامه نمونه فرضی است و نه متعلق به فرد واقعی. سامانه در مرحله آزمایشی است و نتایج با برچسب «نمایه اولیه» ارائه می‌شوند. این ارزیابی جایگزین تشخیص بالینی یا آزمون رسمی تیزهوشی نیست.</p>
+  
+  <div class="btn-row">
+    <button class="btn btn-primary" id="dl" type="button">⬇ ذخیره به‌عنوان PDF</button>
+    <a href="questionnaire.html" class="btn btn-ghost">شروع ارزیابی جدید</a>
+    <a href="index.html" class="btn btn-ghost">بازگشت به خانه</a>
+  </div>
+</div>
+</main>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const params=new URLSearchParams(location.search);
+const demo=params.get('demo')||'child';
+const isChild=demo==='child';
+
+$('path-label').textContent=isChild?'نمایه اولیه کودک و نوجوان':'نمایه اولیه بزرگسال';
+
+const DATA={
+ child:{code:"کاوشگر خلاق – سیستم‌ساز",sub:"آرین · ۱۱ ساله · پنجم ابتدایی (نمونه فرضی)",quote:"«ذهن او با کشف یاد می‌گیرد، نه با تکرار.»",
+  axes:[["استدلال",89],["فضایی",84],["حافظه کاری",76],["تمرکز",25],["انعطاف",78],["بازداری",16],["خلاقیت",92],["اشتیاق",20]],
+  strengths:["خلاقیت واگرا","استدلال سیال","هوش فضایی","انعطاف ذهنی","حافظه کاری"],
+  growth:["خودتنظیمی و مهار تکانه","ایده‌های نیمه‌تمام","افت تمرکز در تکالیف طولانی"],
+  tip:"جمله پیشنهادی برای والد: «ایده‌ات جالبه؛ اولین قدم کوچکش چیه؟»",
+  plan:[
+    "ماه ۱: روزانه ۱۵ دقیجه تمرین «پایان دادن به یک ایده کوچک»",
+    "ماه ۲: ثبت سه ایده در هفته، انتخاب یکی، انجام کامل",
+    "ماه ۳: پیوستن به یک گروه خلاق (نقاشی، داستان، ساختمان)",
+    "ماه ۴: تمرین تکنیک پومودورو (۲۵ دقیقه تمرکز، ۵ دقیقه استراحت)",
+    "ماه ۵: شرکت در یک مسابقه خلاقیت یا علمی",
+    "ماه ۶: بازسنجی و تنظیم برنامه بعدی"
+  ]},
+ adult:{code:"استراتژیست شهودی – پیش‌قدم",sub:"نمونه فرضی بزرگسال",quote:"«انرژی تو وقتی تمام می‌شود که نقش اشتباه بازی کنی.»",
+  axes:[["راهبرد",94],["تأثیر",89],["یادگیری",87],["پیوند",63],["اجرا",46]],
+  strengths:["آینده‌نگر","الگویاب","پیش‌قدم","کنجکاو","جسور"],
+  growth:["اجرای پیوسته و انضباط","شروع‌های زیاد، تحویل کم","ریسک خستگی در نقش‌های تکراری"],
+  tip:"فرمول پیشنهادی: ۲ بلوک تمرکز عمیق ۹۰ دقیقه‌ای و یک بلوک بستن و اولویت‌گذاری.",
+  plan:[
+    "ماه ۱: شناسایی یک پروژه کوچک و تحویل آن در ۳۰ روز",
+    "ماه ۲: نصب یک ابزار مدیریت وظایف (مثل Todoist) و استفاده روزانه",
+    "ماه ۳: تعیین «روز بستن» هفتگی (جمعه‌ها: مرور، اولویت‌دهی)",
+    "ماه ۴: تمرکز عمیق روزانه ۹۰ دقیقه (دو بلوک، بدون قطع)",
+    "ماه ۵: شبیه‌سازی یک نقش هم‌راستا با استعداد (پروژه جانبی)",
+    "ماه ۶: تصمیم‌گیری برای انتقال مسیر یا تغییر نقش شغلی"
+  ]}
+};
+
+const d=DATA[demo]||DATA.child;
+const bandFa=v=>v>=80?"بسیار قوی":v>=60?"قوی":v>=40?"میانه":v>=20?"در حال رشد":"نیازمند حمایت";
+
+function radar(axes){
+  const n=axes.length,c=160,R=100,pt=(i,v)=>{const a=(-90+i*360/n)*Math.PI/180;return[c+R*v/100*Math.cos(a),c+R*v/100*Math.sin(a)]};
+  let g="";
+  [25,50,75,100].forEach(l=>g+=`<polygon points="${axes.map((_,i)=>pt(i,l).join(',')).join(' ')}" fill="none" stroke="#e3e6f2"/>`);
+  axes.forEach((_,i)=>{const p=pt(i,100);g+=`<line x1="${c}" y1="${c}" x2="${p[0]}" y2="${p[1]}" stroke="#e3e6f2"/>`});
+  g+=`<polygon points="${axes.map((a,i)=>pt(i,a[1]).join(',')).join(' ')}" fill="rgba(18,181,166,.25)" stroke="#12b5a6" stroke-width="2.5"/>`;
+  axes.forEach((a,i)=>{const p=pt(i,a[1]),l=pt(i,130);
+    g+=`<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="#1e2a6b"/><text x="${l[0]}" y="${l[1]+4}" text-anchor="${Math.abs(l[0]-c)<8?'middle':(l[0]>c?'start':'end')}">${a[0]}</text>`});
+  return `<svg viewBox="0 0 320 320" role="img" aria-label="نمودار راداری" style="width:100%;max-width:380px;display:block;margin:auto">${g}</svg>`;
+}
+
+$('radar').innerHTML=radar(d.axes);
+$('code').innerHTML=`<small>کد پروفایل</small><h2>${d.code}</h2><small>${d.sub}</small><br><q>${d.quote}</q>`;
+$('strengths').innerHTML=d.strengths.map(s=>`<span class="pill s">${s}</span>`).join('');
+$('growth').innerHTML=d.growth.map(s=>`<span class="pill g">${s}</span>`).join('');
+$('bands').textContent=d.axes.map(a=>`${a[0]}: ${bandFa(a[1])}`).join(' · ');
+$('tip').textContent=d.tip;
+$('plan').innerHTML=d.plan.map(p=>`<li>${p}</li>`).join('');
+
+$('dl').addEventListener('click',()=>{
+  alert('برای ذخیره کارنامه به PDF، از منوی چاپ مرورگر (Ctrl+P یا Cmd+P) گزینه "Save as PDF" را انتخاب کنید.');
+  window.print();
+});
+</script>
+
+</body>
+</html>

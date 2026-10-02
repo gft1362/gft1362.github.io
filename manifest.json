@@ -1,0 +1,45 @@
+{
+  "name": "ژنوم — سامانه استعدادیابی",
+  "short_name": "ژنوم",
+  "description": "سامانه هوشمند استعدادیابی کودک، نوجوان و بزرگسال با کارنامه و نقشه اقدام ۶ ماهه",
+  "lang": "fa-IR",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b1030",
+  "theme_color": "#1e2a6b",
+  "categories": ["education", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='54' fill='%231e2a6b'/%3E%3Ccircle cx='96' cy='96' r='42' fill='%2312b5a6'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='144' fill='%231e2a6b'/%3E%3Ccircle cx='256' cy='256' r='112' fill='%2312b5a6'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "شروع ارزیابی",
+      "short_name": "ارزیابی",
+      "url": "./questionnaire.html"
+    },
+    {
+      "name": "نمونه کارنامه کودک",
+      "short_name": "نمونه کودک",
+      "url": "./result.html?demo=child"
+    },
+    {
+      "name": "نمونه کارنامه بزرگسال",
+      "short_name": "نمونه بزرگسال",
+      "url": "./result.html?demo=adult"
+    }
+  ]
+}
